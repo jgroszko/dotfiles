@@ -1,15 +1,15 @@
 # The various escape codes that we can use to color our prompt.
-FG_YELLOW="\e[38;5;226m"
-FG_GREY_0="\e[38;5;234m"
-FG_GREY_1="\e[38;5;236m"
-FG_GREY_2="\e[38;5;238m"
-FG_GREY_3="\e[38;5;255m"
+FG_YELLOW="\[\e[38;5;226m\]"
+FG_GREY_0="\[\e[38;5;234m\]"
+FG_GREY_1="\[\e[38;5;236m\]"
+FG_GREY_2="\[\e[38;5;238m\]"
+FG_GREY_3="\[\e[38;5;255m\]"
 
-BG_BLACK="\e[48;5;0m"
-BG_GREY_0="\e[48;5;234m"
-BG_GREY_1="\e[48;5;236m"
-BG_GREY_2="\e[48;5;238m"
-BG_GREY_3="\e[48;5;255m"
+BG_BLACK="\[\e[48;5;0m\]"
+BG_GREY_0="\[\e[48;5;234m\]"
+BG_GREY_1="\[\e[48;5;236m\]"
+BG_GREY_2="\[\e[48;5;238m\]"
+BG_GREY_3="\[\e[48;5;255m\]"
 
 CLEAN_COLOR=$FG_GREY_3
 DIRTY_COLOR=$FG_YELLOW
@@ -31,8 +31,7 @@ function is_git_repository {
 
 # Determine the branch/state information for this git repository.
 function set_git_branch {
-  # Set the final branch string.
-  BRANCH=`git rev-parse --abbrev-ref HEAD 2>/dev/null || echo ""`
+  BRANCH_NAME=`git rev-parse --abbrev-ref HEAD 2>/dev/null || echo ""`
 
   if [[ `git status` =~ "working tree clean" ]]; then
   	 BRANCH_COLOR=$CLEAN_COLOR
@@ -46,7 +45,7 @@ function set_bash_prompt () {
   # Set the BRANCH variable.
   if is_git_repository ; then
     set_git_branch
-	BRANCH="$ARROW_SECOND $BRANCH_COLOR$BRANCH $ARROW_THIRD"
+    BRANCH="$ARROW_SECOND $BRANCH_COLOR$BRANCH_NAME $ARROW_THIRD"
   else
     BRANCH="$ARROW_SECOND_FINAL"
   fi
