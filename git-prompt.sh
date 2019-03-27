@@ -13,7 +13,7 @@ BG_GREY_2="\[\e[48;5;239m\]"
 BG_GREY_3="\[\e[48;5;245m\]"
 BG_GREY_4="\[\e[48;5;255m\]"
 
-CLEAN_COLOR=$FG_GREY_3
+CLEAN_COLOR=$FG_GREY_4
 DIRTY_COLOR=$FG_YELLOW
 
 ARROW=""
@@ -23,7 +23,7 @@ ARROW_FIRST="$FG_GREY_2$BG_GREY_1$ARROW$FG_GREY_4"
 
 ARROW_SECOND_FINAL="$FG_GREY_1$BG_BLACK$ARROW$FG_GREY_4"
 
-ARROW_SECOND="$FG_GREY_1$BG_GREY_0$ARROW$FG_GREY_3"
+ARROW_SECOND="$FG_GREY_1$BG_GREY_0$ARROW$FG_GREY_4"
 ARROW_THIRD="$FG_GREY_0$BG_BLACK$ARROW$FG_GREY_4"
 
 # Detect whether the current directory is a git repository.
@@ -53,7 +53,7 @@ function set_bash_prompt () {
   fi
 
   # Set the bash prompt variable.
-  PS1="$PRE_ARROW \h $ARROW_FIRST \w $BRANCH \$ "
+  PS1="$PRE_ARROW \u $ARROW_FIRST \w $BRANCH \$ "
 }
 
 # Tell bash to execute this function just before displaying its prompt.
