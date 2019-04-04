@@ -14,6 +14,15 @@ ARROW=""
 ARROW_FIRST="#[fg=$GREY_1,bg=$GREY_0]$ARROW#[fg=$GREY_3,bg=$GREY_1]"
 ARROW_SECOND="#[fg=$GREY_2,bg=$GREY_1]$ARROW#[fg=$GREY_3,bg=$GREY_2]"
 
+LOAD_NUMBERS="$(uptime | awk -F '[a-z]:' '{ print $2 }')"
+LOAD_FIRST="$(echo $LOAD_NUMBERS | cut -d' ' -f1)"
+if (( $(echo "$LOAD_FIRST > 6" | bc -l) )); then
+    LOAD_COLOR=$YELLOW
+else
+    LOAD_COLOR=$GREY_1
+fi
+LOAD="#[fg=$LOAD_COLOR]$LOAD_NUMBERS"
+
 function is_git_repository {
     git branch > /dev/null 2>&1
 }
@@ -28,7 +37,7 @@ if is_git_repository; then
         BRANCH_COLOR="#[fg=$DIRTY_COLOR]"
     fi
 
-    echo "$ARROW_FIRST $BRANCH_COLOR$BRANCH $ARROW_SECOND $REPO "
+    echo "$LOAD $ARROW_FIRST $BRANCH_COLOR$BRANCH $ARROW_SECOND $REPO "
 else
-    echo "$ARROW_FIRST $PWD "
+    echo "$LOAD $ARROW_FIRST $PWD "
 fi
