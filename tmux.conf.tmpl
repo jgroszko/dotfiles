@@ -35,42 +35,46 @@ set -g default-terminal "screen-256color"
 #  modes
 setw -g clock-mode-colour colour5
 setw -g mode-attr bold
-setw -g mode-fg colour226
-setw -g mode-bg colour236
+setw -g mode-fg {{HIGHLIGHT}}
+setw -g mode-bg {{GREY_2}}
 
 # panes
-set -g pane-border-bg colour0
-set -g pane-border-fg colour238
-set -g pane-active-border-bg colour0
-set -g pane-active-border-fg colour226
+set -g pane-border-bg {{BLACK}}
+set -g pane-border-fg {{GREY_3}}
+set -g pane-active-border-bg {{BLACK}}
+set -g pane-active-border-fg {{HIGHLIGHT}}
 
-# statusbar
+# status bar
 set -g status-position bottom
 set -g status-justify left
-set -g status-bg colour232
-set -g status-fg colour247
+set -g status-bg {{GREY_0}}
+set -g status-fg {{GREY_5}}
 set -g status-attr dim
 set -g status-left ''
+{% if REMOTE %}
+set -g status-right '#[fg={{GREY_2}}]#[bg={{GREY_2}}]#[fg={{HIGHLIGHT}}] #h '
+{% else %}
 set -g status-right '#(cd #{pane_current_path}; ~/bin/git-status.sh)'
+{% endif %}
 set -g status-right-length 50
 set -g status-left-length 20
 set -g status-interval 1
 
-setw -g window-status-current-fg colour255
-setw -g window-status-current-bg colour236
+setw -g window-status-current-fg {{GREY_6}}
+setw -g window-status-current-bg {{GREY_2}}
 setw -g window-status-current-attr bold
-setw -g window-status-current-format ' #I#[fg=colour226]:#[fg=colour255]#W#[fg=colour226]#F '
+setw -g window-status-current-format ' #I#[fg={{HIGHLIGHT}}]:#[fg={{GREY_6}}]#W#[fg={{HIGHLIGHT}}]#F '
 
-setw -g window-status-fg colour240
-setw -g window-status-bg colour234
+setw -g window-status-fg {{GREY_4}}
+setw -g window-status-bg {{GREY_1}}
 setw -g window-status-attr none
 setw -g window-status-format ' #I#[fg=colour237]:#[fg=colour250]#W#[fg=colour244]#F '
 
 setw -g window-status-bell-attr bold
-setw -g window-status-bell-fg colour255
-setw -g window-status-bell-bg colour1
+setw -g window-status-bell-fg {{GREY_6}}
+setw -g window-status-bell-bg {{RED}}
 
 # messages
 set -g message-attr bold
-set -g message-fg colour255
-set -g message-bg colour236
+set -g message-fg {{GREY_6}}
+set -g message-bg {{GREY_2}}
