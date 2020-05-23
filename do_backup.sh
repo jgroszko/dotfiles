@@ -25,5 +25,7 @@ then
 		  --exclude "/.snapshots" \
 		  --exclude "Dropbox" \
 		  --exclude "VirtualBox VMs" \
+		  --exclude ".local/share/Trash" \
+		  --exclude ".config/google-chrome" \
 		  /home/ "$BACKUP_USER"@"$BACKUP_HOST":"$BACKUP_PATH"
 fi
