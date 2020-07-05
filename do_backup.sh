@@ -3,7 +3,7 @@
 BACKUP_HOST="lirael"
 BACKUP_USER="john"
 BACKUP_SSH_KEY="/home/john/.ssh/id_rsa"
-BACKUP_PATH="/volume1/backup/homes/$(hostname)/daily"
+BACKUP_PATH="/volume1/backup/homes/$(hostname)"
 
 resolvedIp=$(nslookup "$BACKUP_HOST" | awk -F':' '/^Address: / { matched = 1 } matched { print $2 }' | xargs)
 
