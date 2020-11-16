@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BACKUP_HOST="lirael"
+BACKUP_HOST="lirael.prod.gear.haus"
 BACKUP_USER="john"
 BACKUP_SSH_KEY="/home/john/.ssh/id_rsa"
 BACKUP_PATH="/volume1/backup/homes/$(hostname)"
@@ -27,5 +27,6 @@ then
 		  --exclude "VirtualBox VMs" \
 		  --exclude ".local/share/Trash" \
 		  --exclude ".config/google-chrome" \
+		  --exclude "dev/*/target" \
 		  /home/ "$BACKUP_USER"@"$BACKUP_HOST":"$BACKUP_PATH"
 fi
