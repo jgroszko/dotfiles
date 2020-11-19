@@ -13,3 +13,5 @@ function sst () {
 
 alias rmrfnm='rm -rf node_modules && npm install'
 alias rfrfym='rm -rf node_modules && yarn install'
+
+alias watchtemps="watch 'sensors && liquidctl status && nvidia-smi'"
