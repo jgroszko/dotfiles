@@ -29,7 +29,8 @@ sudo zypper in \
     python3-docker-compose \
     python3-devel \
     vlc \
-    vlc-codecs
+    vlc-codecs \
+    exfat-utils
 
 # udev rules
 sudo cp ./dev/dotfiles/udev/*.rules /etc/udev/rules.d
