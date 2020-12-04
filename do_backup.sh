@@ -27,6 +27,7 @@ then
 		  --exclude "VirtualBox VMs" \
 		  --exclude ".local/share/Trash" \
 		  --exclude ".config/google-chrome" \
-		  --exclude "dev/*/target" \
+		  --exclude ".cargo" \
+		  --filter ":- .gitignore" \
 		  /home/ "$BACKUP_USER"@"$BACKUP_HOST":"$BACKUP_PATH"
 fi
