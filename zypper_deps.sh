@@ -30,7 +30,8 @@ sudo zypper in \
     python3-devel \
     vlc \
     vlc-codecs \
-    exfat-utils
+    exfat-utils \
+	jq sqlite3 curl bind-utils
 
 # udev rules
 sudo cp ./dev/dotfiles/udev/*.rules /etc/udev/rules.d
