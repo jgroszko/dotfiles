@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# TODO: Test this
+sudo mkdir -p /var/lib/docker
+sudo fallocate -l 10G /mnt/docker-volume.img
+sudo mkfs.ext4 /mnt/docker-volume.img
+sudo -c 'echo "/mnt/docker-volume.img /var/lib/docker ext4 defaults 0 0" >> /etc/fstab'
+sudo mount /var/lib/docker
+
 sudo rpm --import https://dl.google.com/linux/linux_signing_key.pub
 sudo zypper ar https://dl.google.com/linux/chrome/rpm/stable/x86_64 Google-Chrome
 
