@@ -28,6 +28,7 @@ then
 		  --exclude ".local/share/Trash" \
 		  --exclude ".config/google-chrome" \
 		  --exclude ".cargo" \
+		  --exclude "dev/*/target" \
 		  --filter ":- .gitignore" \
 		  /home/ "$BACKUP_USER"@"$BACKUP_HOST":"$BACKUP_PATH"
 fi
