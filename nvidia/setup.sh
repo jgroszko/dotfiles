@@ -10,6 +10,8 @@ install_items+="/etc/modprobe.d/nvidia.conf"
 EOF'
 
 sudo zypper ar https://download.nvidia.com/opensuse/leap/15.2 NVIDIA
-sudo zypper in x11-video-nvidiaG05
+sudo zypper ar https://developer.download.nvidia.com/compute/cuda/repos/opensuse15/x86_64/cuda-opensuse15.repo
+
+sudo zypper in x11-video-nvidiaG05 cuda
 
 sudo dracut -f
