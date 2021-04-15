@@ -14,4 +14,7 @@ function sst () {
 alias rmrfnm='rm -rf node_modules && npm install'
 alias rfrfym='rm -rf node_modules && yarn install'
 
+alias gprom='git pull --rebase origin main'
+alias gprom2='git pull --rebase origin master'
+
 alias watchtemps="watch 'sensors && liquidctl status && nvidia-smi'"
