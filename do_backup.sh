@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# check to make sure script isn't still running
+# if it's still running then exit this script
+SCRIPT_NAME="$(basename $0)"
+
+if [ $(pidof -x ${SCRIPT_NAME}| wc -w) -gt 2 ]; then 
+    exit
+fi
+
 BACKUP_HOST="lirael.prod.gear.haus"
 BACKUP_USER="john"
 BACKUP_SSH_KEY="/home/john/.ssh/id_rsa"
