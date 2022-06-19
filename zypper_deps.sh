@@ -4,7 +4,7 @@
 sudo mkdir -p /var/lib/docker
 sudo fallocate -l 10G /mnt/docker-volume.img
 sudo mkfs.ext4 /mnt/docker-volume.img
-sudo -c 'echo "/mnt/docker-volume.img /var/lib/docker ext4 defaults 0 0" >> /etc/fstab'
+sudo sh -c 'echo "/mnt/docker-volume.img /var/lib/docker ext4 defaults 0 0" >> /etc/fstab'
 sudo mount /var/lib/docker
 
 # User Groups
