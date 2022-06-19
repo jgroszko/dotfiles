@@ -12,6 +12,7 @@ BACKUP_HOST="lirael.prod.gear.haus"
 BACKUP_USER="john"
 BACKUP_SSH_KEY="/home/john/.ssh/id_rsa"
 BACKUP_PATH="/volume1/backup/homes/$(hostname)"
+LOG_FILE="/var/log/home-backup.log"
 
 resolvedIp=$(nslookup "$BACKUP_HOST" | awk -F':' '/^Address: / { matched = 1 } matched { print $2 }' | xargs)
 
@@ -38,5 +39,8 @@ then
 		  --exclude ".cargo" \
 		  --exclude "dev/*/target" \
 		  --filter ":- .gitignore" \
-		  /home/ "$BACKUP_USER"@"$BACKUP_HOST":"$BACKUP_PATH"
+		  --log-file=$LOG_FILE \
+	      /home/ "$BACKUP_USER"@"$BACKUP_HOST":"$BACKUP_PATH"
+
+	echo "$(tail -n 5000 $LOG_FILE)" > $LOG_FILE
 fi
