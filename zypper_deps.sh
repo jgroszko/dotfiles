@@ -45,4 +45,5 @@ sudo zypper in \
     vlc \
     vlc-codecs \
     exfat-utils \
+	glibc-32bit libstdc++6-32bit \ # Needed for Brother Printer drivers
 	jq sqlite3 curl bind-utils
