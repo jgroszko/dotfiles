@@ -7,9 +7,6 @@ sudo mkfs.ext4 /mnt/docker-volume.img
 sudo sh -c 'echo "/mnt/docker-volume.img /var/lib/docker ext4 defaults 0 0" >> /etc/fstab'
 sudo mount /var/lib/docker
 
-# User Groups
-sudo usermod -a -G dialout,docker $USER
-
 # udev rules
 sudo cp ./dev/dotfiles/udev/*.rules /etc/udev/rules.d
 sudo cp ./dev/dotfiles/udev/*.sh /usr/local/bin
@@ -25,6 +22,8 @@ sudo rpm --import http://ftp.gwdg.de/pub/linux/misc/packman/public-keys.asc
 sudo zypper ar http://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_15.4/ Packman
 
 sudo zypper ar https://download.opensuse.org/repositories/graphics/15.4/ graphics
+
+sudo zypper ar https://download.opensuse.org/repositories/home:/Subsurface-Divelog/15.4/ Subsurface
 
 sudo zypper refresh
 sudo zypper in \
@@ -44,6 +43,10 @@ sudo zypper in \
     python3-devel \
     vlc \
     vlc-codecs \
-    exfat-utils \
-	glibc-32bit libstdc++6-32bit \ # Needed for Brother Printer drivers
+    exfatprogs \
+	glibc-32bit libstdc++6-32bit \
+	subsurface \
 	jq sqlite3 curl bind-utils
+
+# User Groups
+sudo usermod -a -G dialout,docker $USER
