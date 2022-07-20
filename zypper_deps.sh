@@ -46,7 +46,7 @@ sudo zypper in \
     exfatprogs \
 	glibc-32bit libstdc++6-32bit \
 	subsurface \
-	jq sqlite3 curl bind-utils
+	jq sqlite3 curl bind-utils libpq5
 
 # User Groups
 sudo usermod -a -G dialout,docker $USER
