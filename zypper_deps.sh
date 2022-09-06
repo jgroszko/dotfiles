@@ -18,8 +18,8 @@ sudo zypper ar https://dl.google.com/linux/chrome/rpm/stable/x86_64 Google-Chrom
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo zypper ar https://packages.microsoft.com/yumrepos/vscode vscode
 
-sudo rpm --import http://ftp.gwdg.de/pub/linux/misc/packman/public-keys.asc
-sudo zypper ar http://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_15.4/ Packman
+sudo rpm --import https://ftp.gwdg.de/pub/linux/misc/packman/public-keys.asc
+sudo zypper ar https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_15.4/ Packman
 
 sudo zypper ar https://download.opensuse.org/repositories/graphics/15.4/ graphics
 
