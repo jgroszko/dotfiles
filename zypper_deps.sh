@@ -19,34 +19,34 @@ sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo zypper ar https://packages.microsoft.com/yumrepos/vscode vscode
 
 sudo rpm --import https://ftp.gwdg.de/pub/linux/misc/packman/public-keys.asc
-sudo zypper ar https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_15.4/ Packman
+sudo zypper ar https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_15.5/ Packman
 
-sudo zypper ar https://download.opensuse.org/repositories/graphics/15.4/ graphics
+sudo zypper ar https://download.opensuse.org/repositories/graphics/15.5/ graphics
 
-sudo zypper ar https://download.opensuse.org/repositories/home:/Subsurface-Divelog/15.4/ Subsurface
+sudo zypper ar https://download.opensuse.org/repositories/home:/Subsurface-Divelog/15.5/ Subsurface
 
 sudo zypper refresh
 sudo zypper in \
-    htop \
-    imagewriter \
-    git \
-    emacs-nox \
-    tmux \
-    gimp \
-    inkscape \
-    code \
-    google-chrome-stable \
-    keepassxc \
-    noto-coloremoji-fonts \
-    docker \
-    python3-docker-compose \
-    python3-devel \
-    vlc \
-    vlc-codecs \
-    exfatprogs \
-	glibc-32bit libstdc++6-32bit \
-	subsurface \
-	jq sqlite3 curl bind-utils libpq5
+     htop \
+     imagewriter \
+     git \
+     emacs-nox \
+     tmux \
+     gimp \
+     inkscape \
+     code \
+     google-chrome-stable \
+     keepassxc \
+     noto-coloremoji-fonts \
+     docker \
+     python3-docker-compose \
+     python3-devel \
+     vlc ffmpeg gstreamer-plugins-{good,bad,ugly,libav} libavcodec-full vlc-codecs \
+     exfatprogs \
+	 glibc-32bit libstdc++6-32bit \
+	 subsurface \
+	 jq sqlite3 curl bind-utils libpq5 \
+	 pipewire-pulseaudio pipewire-tools
 
 # User Groups
 sudo usermod -a -G dialout,docker $USER
